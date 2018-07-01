@@ -1,0 +1,7 @@
+default: pihole@example.com
+local: pihole@example.com
+root: pihole@example.com
+cron: pihole@example.com
+postmaster: pihole@example.com
+mailer-daemon: pihole@example.com
+
