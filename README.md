@@ -75,7 +75,7 @@ sudo apt-get autoremove
 timedatectl set-ntp true 
 timedatectl status
 ```
-Reboot your Pi before continuing the next step. 
+Reboot your Pi before continuing the next step. Login as 'root' to complete the next steps.
 
 ## Install Cloudflare DNS
 We will use Cloudflare via [Argo Tunnel](https://developers.cloudflare.com/argo-tunnel/quickstart/) as our DNS provider 
@@ -126,7 +126,7 @@ This is really a one-liner via `curl -sSL https://install.pi-hole.net | sudo bas
 4) Adjust [`/etc/hosts`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/hosts) to setup other hosts which should be resolved in your network
 
 ### Install SSL via Let's Encrypt
-I am using DNS-01 authentication via Cloudflare DNS with acme.sh - this allows me to automatically renew SSL certificates without exposing services to the outside:
+I am using DNS-01 authentication via Cloudflare DNS with acme.sh - this allows me to automatically renew SSL certificates without exposing services to the outside. Run the below as 'root'-user:
 
 1) Install acme.sh `curl https://get.acme.sh | sh`
 2) Register with Let's Encrypt `acme.sh --upgrade --auto-upgrade --accountemail "youremail"`
