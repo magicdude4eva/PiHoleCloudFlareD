@@ -116,7 +116,7 @@ This is really a one-liner via `curl -sSL https://install.pi-hole.net | sudo bas
 - Enable `DHCP_ACTIVE` and DHCP settings
 - Adjust the `PIHOLE_DOMAIN`
 
-2) Copy the my [whitelist.txt](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/whitelist.txt)
+2) Copy my [whitelist.txt](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/whitelist.txt)
 
 3) Adjust [`/etc/dnsmasqg.d/`](https://github.com/magicdude4eva/PiHoleCloudFlareD/tree/master/etc/dnsmasq.d)
 - In [`01-pihole.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/01-pihole.conf) comment out `server` and adjust `server=127.0.0.1#54` so that it points to the local Cloudflare tunnel
