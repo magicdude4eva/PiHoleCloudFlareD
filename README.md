@@ -74,6 +74,11 @@ sudo apt-get autoremove
 ```
 timedatectl set-ntp true 
 timedatectl status
+
+# Time will be in GMT/UTC, if you want to adjust, use the following:
+echo "Africa/Johannesburg" | sudo tee /etc/timezone
+sudo dpkg-reconfigure --frontend noninteractive tzdata
+timedatectl set-timezone Africa/Johannesburg
 ```
 Reboot your Pi before continuing the next step. Login as 'root' to complete the next steps.
 
