@@ -94,7 +94,7 @@ To manually test it, run:
 sudo ./cloudflared proxy-dns --port 54 --upstream https://1.1.1.1/.well-known/dns-query --upstream https://1.0.0.1/.well-known/dns-query
 ```
 
-Let's install it as a system service by copying the [service file](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/systemd/system/dnsproxy.service) and then starting it via `sudo systemctl restart dnsmasq.service`
+Let's install it as a system service by copying the [service file](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/systemd/system/dnsproxy.service) and then starting it via `sudo systemctl restart dnsproxy.service`
 
 ## Install email for notifications
 We will use `msmtp` for this and I use my Google Apps account to send out email:
@@ -118,7 +118,7 @@ This is really a one-liner via `curl -sSL https://install.pi-hole.net | bash`
 
 2) Copy my [whitelist.txt](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/whitelist.txt)
 
-3) Adjust [`/etc/dnsmasqg.d/`](https://github.com/magicdude4eva/PiHoleCloudFlareD/tree/master/etc/dnsmasq.d)
+3) Adjust [`/etc/dnsmasq.d/`](https://github.com/magicdude4eva/PiHoleCloudFlareD/tree/master/etc/dnsmasq.d)
 - In [`01-pihole.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/01-pihole.conf) comment out `server` and adjust `server=127.0.0.1#54` so that it points to the local Cloudflare tunnel
 - Adjust [`02-pihole-dhcp.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/02-pihole-dhcp.conf) to match your IP-range
 - Adjust [`04-pihole-static-dhcp.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/04-pihole-static-dhcp.conf) to setup static IPs
