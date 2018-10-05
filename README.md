@@ -107,10 +107,10 @@ ln -s /usr/bin/msmtp /usr/sbin/sendmail
 Adjust [`/etc/msmtprc`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/msmtprc) and [`/etc/msmtprc.aliases`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/msmtprc.aliases) accordingly.
 
 ## Install PiHole
-This is really a one-liner via `curl -sSL https://install.pi-hole.net | sudo bash`
+This is really a one-liner via `curl -sSL https://install.pi-hole.net | bash`
 
 ### Adjust PiHole configuration files
-1) Adjust [`sudo nano /etc/phihole/setupVars.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/setupVars.conf)
+1) Adjust [`sudo nano /etc/pihole/setupVars.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/setupVars.conf)
 - The `IPV4_ADDRESS` to the IP of your Pi
 - Comment out `PIHOLE_DNS_1` and `PIHOLE_DNS_2`
 - Enable `DHCP_ACTIVE` and DHCP settings
