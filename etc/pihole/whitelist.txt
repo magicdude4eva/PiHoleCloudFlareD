@@ -115,7 +115,7 @@ res.cloudinary.com
 connect.facebook.net
 t.9gag.com
 web-t.9gag.com
-muffin.lan
+naschenweng.info
 d.ghostery.com
 spade.twitch.tv
 countess.twitch.tv
