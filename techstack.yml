@@ -1,23 +1,13 @@
 repo_name: magicdude4eva/PiHoleCloudFlareD
-report_id: 24c6aad8067b319418770279c60d34c4
+report_id: 79f1dfd9604d4e9ef5bb55bdde8a9643
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T09:50:40+00:00'
+timestamp: '2024-01-11T07:28:17+00:00'
 requested_by: magicdude4eva
 provider: github
 branch: master
-detected_tools_count: 4
+detected_tools_count: 2
 tools:
-- name: pgvector
-  description: Open-source vector similarity search for Postgres
-  website_url: https://github.com/pgvector/pgvector/
-  open_source: false
-  hosted_saas: false
-  category: Data Stores
-  sub_category: Database Tools
-  image_url: https://img.stackshare.io/service/109221/default_b888cdf5617d936aa6aacf130911906955508639.png
-  detection_source: etc/pihole/whitelist.txt
-  last_updated_by: Gerd Naschenweng
-  last_updated_on: 2018-07-01 05:54:10.000000000 Z
 - name: Git
   description: Fast, scalable, distributed revision control system
   website_url: http://git-scm.com/
@@ -26,18 +16,8 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/magicdude4eva/PiHoleCloudFlareD
   detection_source: Repo Metadata
-- name: LangChain
-  description: Build AI apps with LLMs through composability
-  website_url: https://github.com/hwchase17/langchain
-  open_source: true
-  hosted_saas: false
-  category: Communications
-  sub_category: Large Language Model Tools
-  image_url: https://img.stackshare.io/service/48790/default_5b6c6b73f1ff3775c85d2a1ba954cb87e30cbf13.jpg
-  detection_source: etc/pihole/whitelist.txt
-  last_updated_by: Gerd Naschenweng
-  last_updated_on: 2018-07-01 05:54:10.000000000 Z
 - name: Shell
   description: A shell is a text-based terminal, used for manipulating programs and
     files. Shell scripts typically manage program execution.
@@ -47,4 +27,5 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/magicdude4eva/PiHoleCloudFlareD
   detection_source: Repo Metadata
