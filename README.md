@@ -99,7 +99,7 @@ To manually test it, run:
 sudo ./cloudflared proxy-dns --port 54 --upstream https://1.1.1.1/.well-known/dns-query --upstream https://1.0.0.1/.well-known/dns-query
 ```
 
-Let's install it as a system service by copying the [service file](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/systemd/system/dnsproxy.service) and then starting it via `sudo systemctl restart dnsproxy.service`
+Let's install it as a system service by copying the [service file](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/systemd/system/dnsproxy.service) and then starting it via `sudo systemctl restart dnsproxy.service`
 
 ## Install email for notifications
 We will use `msmtp` for this and I use my Google Apps account to send out email:
@@ -109,26 +109,26 @@ rm /usr/sbin/sendmail
 ln -s /usr/bin/msmtp /usr/sbin/sendmail
 ```
 
-Adjust [`/etc/msmtprc`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/msmtprc) and [`/etc/msmtprc.aliases`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/msmtprc.aliases) accordingly.
+Adjust [`/etc/msmtprc`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/msmtprc) and [`/etc/msmtprc.aliases`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/msmtprc.aliases) accordingly.
 
 ## Install PiHole
 This is really a one-liner via `curl -sSL https://install.pi-hole.net | bash`
 
 ### Adjust PiHole configuration files
-1) Adjust [`sudo nano /etc/pihole/setupVars.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/setupVars.conf)
+1) Adjust [`sudo nano /etc/pihole/setupVars.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/pihole/setupVars.conf)
 - The `IPV4_ADDRESS` to the IP of your Pi
 - Comment out `PIHOLE_DNS_1` and `PIHOLE_DNS_2`
 - Enable `DHCP_ACTIVE` and DHCP settings
 - Adjust the `PIHOLE_DOMAIN`
 
-2) Copy my [whitelist.txt](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/pihole/whitelist.txt)
+2) Copy my [whitelist.txt](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/pihole/whitelist.txt)
 
-3) Adjust [`/etc/dnsmasq.d/`](https://github.com/magicdude4eva/PiHoleCloudFlareD/tree/master/etc/dnsmasq.d)
-- In [`01-pihole.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/01-pihole.conf) comment out `server` and adjust `server=127.0.0.1#54` so that it points to the local Cloudflare tunnel
-- Adjust [`02-pihole-dhcp.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/02-pihole-dhcp.conf) to match your IP-range
-- Adjust [`04-pihole-static-dhcp.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/dnsmasq.d/04-pihole-static-dhcp.conf) to setup static IPs
+3) Adjust [`/etc/dnsmasq.d/`](https://github.com/magicdude4eva/PiHoleCloudFlareD/tree/main/etc/dnsmasq.d)
+- In [`01-pihole.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/dnsmasq.d/01-pihole.conf) comment out `server` and adjust `server=127.0.0.1#54` so that it points to the local Cloudflare tunnel
+- Adjust [`02-pihole-dhcp.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/dnsmasq.d/02-pihole-dhcp.conf) to match your IP-range
+- Adjust [`04-pihole-static-dhcp.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/dnsmasq.d/04-pihole-static-dhcp.conf) to setup static IPs
 
-4) Adjust [`/etc/hosts`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/hosts) to setup other hosts which should be resolved in your network
+4) Adjust [`/etc/hosts`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/hosts) to setup other hosts which should be resolved in your network
 
 ### Install SSL via Let's Encrypt
 I am using DNS-01 authentication via Cloudflare DNS with acme.sh - this allows me to automatically renew SSL certificates without exposing services to the outside. Run the below as 'root'-user:
@@ -141,7 +141,7 @@ export CF_Key="YOUR-API-KEY"
 export CF_Email="YOUR-CLOUDFLARE-EMAIL"
 ```
 
-4) Adjust your [`/etc/lighthttpd/external.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/master/etc/lighttpd/external.conf) (change `pihole.example.com` to your own domain name)
+4) Adjust your [`/etc/lighthttpd/external.conf`](https://github.com/magicdude4eva/PiHoleCloudFlareD/blob/main/etc/lighttpd/external.conf) (change `pihole.example.com` to your own domain name)
 
 5) Issue your certificate and adjust the domain `pihole.example.com` according to your own settings
 ```
